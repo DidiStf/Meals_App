@@ -9,10 +9,10 @@ import { CATEGORIES } from '../data/dummy-data';
 
 const CategoriesScreen = ({ navigation }) => {
   const renderGridTile = (itemData) => {
-    const { id, color, title } = itemData.item;
+    const { id, background, title } = itemData.item;
     return (
       <CategoryGridTile
-        color={color}
+        background={background}
         onSelect={() => {
           navigation.navigate({
             routeName: 'CategoryMeals',
@@ -31,7 +31,8 @@ const CategoriesScreen = ({ navigation }) => {
       keyExtractor={({ id }, index) => id}
       numColumns={2}
       data={CATEGORIES}
-      renderItem={renderGridTile}></FlatList>
+      renderItem={renderGridTile}
+    ></FlatList>
   );
 };
 
@@ -45,7 +46,8 @@ CategoriesScreen.navigationOptions = ({ navigation }) => {
           iconName='ios-menu'
           onPress={() => {
             navigation.toggleDrawer();
-          }}></Item>
+          }}
+        ></Item>
       </HeaderButtons>
     ),
   };

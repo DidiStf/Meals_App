@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ImageBackground,
   Platform,
   StyleSheet,
   Text,
@@ -8,7 +9,7 @@ import {
   View,
 } from 'react-native';
 
-const CategoryGridTile = ({ color, onSelect, title }) => {
+const CategoryGridTile = ({ background, onSelect, title }) => {
   const TouchableComponent =
     Platform.OS === 'android' && Platform.Version >= 21
       ? TouchableNativeFeedback
@@ -17,9 +18,15 @@ const CategoryGridTile = ({ color, onSelect, title }) => {
   return (
     <View style={styles.gridTile}>
       <TouchableComponent onPress={onSelect} style={styles.touchable}>
-        <View style={{ ...styles.container, ...{ backgroundColor: color } }}>
-          <Text style={styles.title}>{title}</Text>
-        </View>
+        <ImageBackground style={styles.image} source={background}>
+          <View
+            style={{
+              ...styles.container /* , ...{ backgroundColor: color } */,
+            }}
+          >
+            <Text style={styles.title}>{title}</Text>
+          </View>
+        </ImageBackground>
       </TouchableComponent>
     </View>
   );
@@ -30,8 +37,8 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 10,
     padding: 15,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   gridTile: {
     flex: 1,
@@ -48,10 +55,18 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 10,
   },
+  image: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   title: {
     fontFamily: 'open-sans-bold',
     fontSize: 19,
-    textAlign: 'right',
+    textAlign: 'center',
+    color: 'black',
+    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+    width: '100%',
   },
   touchable: {
     flex: 1,

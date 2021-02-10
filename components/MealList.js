@@ -13,7 +13,7 @@ const MealList = ({ listData, navigation }) => {
       complexity,
       duration,
       id,
-      imageUrl,
+      image,
       title,
     } = itemData.item;
     const isFavourite = favouriteMeals.some((meal) => meal.id === id);
@@ -23,7 +23,7 @@ const MealList = ({ listData, navigation }) => {
         affordability={affordability}
         complexity={complexity}
         duration={duration}
-        image={imageUrl}
+        image={image}
         title={title}
         onSelectMeal={() => {
           navigation.navigate({

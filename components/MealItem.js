@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import DefaultText from './DefaultText';
+import colors from '../constants/Colors';
 
 const MealItem = ({
   affordability,
@@ -22,7 +23,7 @@ const MealItem = ({
       <TouchableOpacity onPress={onSelectMeal}>
         <View>
           <View style={{ ...styles.mealRow, ...styles.mealHeader }}>
-            <ImageBackground source={{ uri: image }} style={styles.bgImage}>
+            <ImageBackground source={image} style={styles.bgImage}>
               <View style={styles.titleContainer}>
                 <Text style={styles.title} numberOfLines={1}>
                   {title}
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
   mealItem: {
     height: 200,
     width: '100%',
-    backgroundColor: '#e6e1e1',
+    backgroundColor: colors.primaryColor,
     borderRadius: 10,
     overflow: 'hidden',
     marginVertical: 10,
