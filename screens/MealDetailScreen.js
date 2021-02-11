@@ -27,7 +27,7 @@ const MealDetailScreen = ({ navigation }) => {
     complexity,
     duration,
     id,
-    imageUrl,
+    image,
     ingredients,
     steps,
   } = selectedMeal;
@@ -48,7 +48,7 @@ const MealDetailScreen = ({ navigation }) => {
 
   return (
     <ScrollView>
-      <Image source={{ uri: imageUrl }} style={styles.image} />
+      <Image source={image} style={styles.image} />
       <View style={styles.details}>
         <DefaultText>{duration}m</DefaultText>
         <DefaultText>{complexity.toUpperCase()}</DefaultText>
