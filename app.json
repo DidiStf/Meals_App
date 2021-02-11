@@ -15,7 +15,7 @@
     },
     "assetBundlePatterns": ["**/*"],
     "android": {
-      "package": "com.dilyanastefanova.my-meals",
+      "package": "com.dilyanastefanova.my_meals",
       "versionCode": 1
     },
     "ios": {
